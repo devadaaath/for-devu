@@ -12,7 +12,8 @@ font-family:
 BlinkMacSystemFont,
 sans-serif;
 
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 
 color:white;
 
@@ -25,7 +26,7 @@ rgba(0,0,0,0.55)
 url("https://images.unsplash.com/photo-1522383225653-ed111181a951")
 center/cover no-repeat fixed;
 
-height:100vh;
+min-height:100vh;
 }
 
 /* OVERLAY */
@@ -94,13 +95,13 @@ visibility:hidden;
 
 .hero{
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-padding:20px;
+padding:40px 20px;
 }
 
 /* GLASS CARD */
