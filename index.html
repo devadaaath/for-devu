@@ -1,472 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
 <title>For Devu 🌸</title>
 
-<style>
+<link rel="stylesheet"
+href="style.css">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-height:100vh;
-overflow:hidden;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-family:
--apple-system,
-BlinkMacSystemFont,
-sans-serif;
-
-background:
-linear-gradient(
--45deg,
-#0f172a,
-#312e81,
-#7e22ce,
-#ec4899
-);
-
-background-size:400% 400%;
-
-animation:bg 15s ease infinite;
-
-color:white;
-
-position:relative;
-}
-
-/* ANIMATED BACKGROUND */
-
-@keyframes bg{
-
-0%{
-background-position:0% 50%;
-}
-
-50%{
-background-position:100% 50%;
-}
-
-100%{
-background-position:0% 50%;
-}
-
-}
-
-/* FLOATING BLOBS */
-
-.blob{
-
-position:absolute;
-
-width:350px;
-height:350px;
-
-border-radius:50%;
-
-filter:blur(100px);
-
-opacity:0.5;
-
-animation:float 10s ease infinite;
-}
-
-.blob1{
-background:#ff4ecd;
-top:-120px;
-left:-100px;
-}
-
-.blob2{
-background:#7f5cff;
-bottom:-120px;
-right:-100px;
-animation-delay:2s;
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(30px);
-}
-
-}
-
-/* PARTICLES */
-
-.particle{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-background:white;
-
-border-radius:50%;
-
-opacity:0.5;
-
-animation:particleMove linear infinite;
-}
-
-@keyframes particleMove{
-
-from{
-transform:translateY(0);
-opacity:0;
-}
-
-to{
-transform:translateY(-100vh);
-opacity:1;
-}
-
-}
-
-/* GLASS CARD */
-
-.card{
-
-position:relative;
-
-z-index:10;
-
-width:90%;
-max-width:750px;
-
-padding:60px;
-
-border-radius:35px;
-
-background:
-rgba(255,255,255,0.08);
-
-backdrop-filter:blur(20px);
-
-border:
-1px solid rgba(255,255,255,0.15);
-
-box-shadow:
-0 8px 40px rgba(0,0,0,0.4);
-
-text-align:center;
-
-overflow:hidden;
-
-animation:fade 1.8s ease;
-}
-
-/* SHINE EFFECT */
-
-.card::before{
-
-content:"";
-
-position:absolute;
-
-top:-50%;
-left:-50%;
-
-width:200%;
-height:200%;
-
-background:
-linear-gradient(
-45deg,
-transparent,
-rgba(255,255,255,0.08),
-transparent
-);
-
-transform:rotate(25deg);
-
-animation:shine 6s linear infinite;
-}
-
-@keyframes shine{
-
-0%{
-transform:translateX(-100%) rotate(25deg);
-}
-
-100%{
-transform:translateX(100%) rotate(25deg);
-}
-
-}
-
-/* TITLE */
-
-h1{
-
-font-size:70px;
-
-font-weight:800;
-
-background:
-linear-gradient(
-to right,
-#fff,
-#ffd6f5
-);
-
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 30px rgba(255,255,255,0.2);
-
-animation:fadeUp 1.5s ease;
-}
-
-/* SUBTEXT */
-
-.typing{
-
-margin-top:25px;
-
-font-size:24px;
-
-opacity:0.9;
-
-overflow:hidden;
-
-white-space:nowrap;
-
-border-right:3px solid white;
-
-width:0;
-
-animation:
-typing 5s steps(40,end) forwards,
-blink 1s infinite;
-}
-
-@keyframes typing{
-
-from{
-width:0;
-}
-
-to{
-width:100%;
-}
-
-}
-
-@keyframes blink{
-
-50%{
-border-color:transparent;
-}
-
-}
-
-/* BUTTON */
-
-button{
-
-margin-top:45px;
-
-padding:18px 42px;
-
-border:none;
-
-border-radius:50px;
-
-background:
-linear-gradient(
-to right,
-#ff4ecd,
-#7f5cff
-);
-
-color:white;
-
-font-size:18px;
-
-font-weight:700;
-
-cursor:pointer;
-
-transition:0.4s;
-
-box-shadow:
-0 0 20px rgba(255,255,255,0.15);
-}
-
-button:hover{
-
-transform:
-translateY(-6px)
-scale(1.05);
-
-box-shadow:
-0 0 30px rgba(255,255,255,0.35);
-}
-
-/* MESSAGE */
-
-#message{
-
-display:none;
-
-margin-top:40px;
-
-font-size:22px;
-
-line-height:1.9;
-
-color:#ffe8ff;
-
-animation:fadeUp 1.5s ease;
-}
-
-/* FADE */
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:scale(0.9);
-}
-
-to{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-@keyframes fadeUp{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-h1{
-font-size:48px;
-}
-
-.typing{
-font-size:18px;
-}
-
-#message{
-font-size:18px;
-}
-
-.card{
-padding:40px 25px;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
+<div class="overlay"></div>
+
+<div class="sakura-container"></div>
 
 <div class="card">
 
-<h1>Happy Birthday Devu ✨</h1>
+<h1>Happy Birthday Devu 🌸</h1>
 
-<div class="typing">
-You feel like the main character of my favorite anime 🌸
-</div>
+<p class="typing">
+You turned my ordinary life
+into an anime scene ✨
+</p>
 
-<button onclick="openMessage()">
-Open Message 💌
+<button onclick="openLetter()">
+Open Letter 💌
 </button>
 
-<div id="message">
+<div id="letter">
 
-Some people enter life quietly...
+<p>
 
-<br><br>
-
-but you entered mine
-like a Makoto Shinkai scene 🌙
+Some people feel temporary...
 
 <br><br>
 
-soft skies,
-beautiful chaos,
-and unforgettable feelings.
+but you feel like
+a memory I never want to lose 🌙
+
+<br><br>
+
+Your smile feels warm
+like cherry blossoms in spring.
 
 <br><br>
 
 Happy Birthday Kutti ❤️
 
-</div>
+</p>
 
 </div>
 
-<script>
+</div>
 
-/* MESSAGE */
-
-function openMessage(){
-
-document
-.getElementById("message")
-.style.display="block";
-
-}
-
-/* PARTICLES */
-
-for(let i=0;i<50;i++){
-
-const p=document.createElement("div");
-
-p.classList.add("particle");
-
-p.style.left=Math.random()*100+"vw";
-
-p.style.top=Math.random()*100+"vh";
-
-p.style.animationDuration=
-(Math.random()*10+5)+"s";
-
-p.style.animationDelay=
-(Math.random()*5)+"s";
-
-document.body.appendChild(p);
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
