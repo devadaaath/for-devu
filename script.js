@@ -1,3 +1,5 @@
+/* OPEN LETTER */
+
 function openLetter(){
 
 document
@@ -6,11 +8,27 @@ document
 
 }
 
-/* Sakura Petals */
+/* CURSOR GLOW */
+
+const cursor=
+document.querySelector(".cursor");
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+});
+
+/* SAKURA */
 
 function createPetal(){
 
-const petal=document.createElement("div");
+const petal=
+document.createElement("div");
 
 petal.classList.add("sakura");
 
@@ -33,4 +51,4 @@ petal.remove();
 
 }
 
-setInterval(createPetal,300);
+setInterval(createPetal,250);
