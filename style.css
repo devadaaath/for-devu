@@ -1,0 +1,240 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-family:
+-apple-system,
+BlinkMacSystemFont,
+sans-serif;
+
+background:
+url("https://images.unsplash.com/photo-1522383225653-ed111181a951")
+center/cover no-repeat;
+
+position:relative;
+
+color:white;
+}
+
+/* DARK OVERLAY */
+
+.overlay{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+rgba(0,0,0,0.25),
+rgba(0,0,0,0.55)
+);
+
+backdrop-filter:blur(2px);
+}
+
+/* CARD */
+
+.card{
+
+position:relative;
+
+z-index:10;
+
+width:90%;
+max-width:700px;
+
+padding:55px;
+
+border-radius:35px;
+
+background:
+rgba(255,255,255,0.12);
+
+backdrop-filter:blur(18px);
+
+border:
+1px solid rgba(255,255,255,0.18);
+
+box-shadow:
+0 8px 35px rgba(0,0,0,0.3);
+
+text-align:center;
+
+animation:fade 2s ease;
+}
+
+/* TITLE */
+
+h1{
+
+font-size:64px;
+
+font-weight:800;
+
+color:#ffe1f0;
+
+text-shadow:
+0 0 20px rgba(255,255,255,0.35);
+}
+
+/* TYPING */
+
+.typing{
+
+margin-top:25px;
+
+font-size:22px;
+
+line-height:1.8;
+
+color:#fff5fa;
+
+animation:fadeUp 2s ease;
+}
+
+/* BUTTON */
+
+button{
+
+margin-top:40px;
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:50px;
+
+background:
+linear-gradient(
+to right,
+#ff9ecf,
+#ff6fb5
+);
+
+color:white;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.4s;
+}
+
+button:hover{
+
+transform:
+scale(1.08);
+
+box-shadow:
+0 0 25px rgba(255,255,255,0.4);
+}
+
+/* LETTER */
+
+#letter{
+
+display:none;
+
+margin-top:40px;
+
+font-size:22px;
+
+line-height:2;
+
+color:#fff0f7;
+
+animation:fadeUp 1.5s ease;
+}
+
+/* SAKURA */
+
+.sakura{
+
+position:absolute;
+
+top:-10px;
+
+font-size:20px;
+
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+to{
+transform:
+translateY(110vh)
+rotate(360deg);
+
+opacity:0;
+}
+
+}
+
+/* ANIMATIONS */
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+h1{
+font-size:42px;
+}
+
+.typing{
+font-size:18px;
+}
+
+#letter{
+font-size:18px;
+}
+
+.card{
+padding:40px 25px;
+}
+
+}
