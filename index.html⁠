@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Kutti ✨</title>
+    <style>
+        /* Retro 90s Anime Aesthetic Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            background: linear-gradient(135deg, #1a0b2e, #4c1c5c, #963d74);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        /* Ambient background movement */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Grainy Film Overlay for that Vintage Anime Look */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/fake-luxury.png');
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        /* Floating Pastel Stars */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ffb7b2;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+        }
+
+        /* Main Romantic Glass Container */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 450px;
+            width: 85%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Character Art frame */
+        .anime-frame {
+            width: 100%;
+            height: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #ffb7b2;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255, 183, 178, 0.4);
+        }
+        .anime-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ffb7b2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Aesthetic Audio Player Controls */
+        .audio-container {
+            margin-top: 25px;
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, #ffb7b2, #ffdac1);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: #4c1c5c;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 15px rgba(255, 183, 178, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 183, 178, 0.6);
+        }
+
+        /* Hidden Spotify embed just to pull the audio safely */
+        #bg-music {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+    
+    <!-- Generates floating retro stars background -->
+    <div class="stars" id="star-field"></div>
+
+    <div class="card">
+        <!-- Gorgeous retro 90s anime romance aesthetic image -->
+        <div class="anime-frame">
+            <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=600&auto=format&fit=crop" alt="Anime aesthetic sky">
+        </div>
+        
+        <!-- You can edit your text right here later! -->
+        <h1>Happy Birthday, Devu! ✨</h1>
+        <p>To my favorite anime girl, Kutti... 🌸</p>
+        <p id="letter-text">
+            [Click the music button below to set the mood, and write your beautiful, secret romantic letter to her right here later!]
+        </p>
+
+        <!-- Music Section -->
+        <div class="audio-container">
+            <button class="music-btn" id="play-trigger" onclick="toggleMusic()">🎵 Play "Nothing's New"</button>
+        </div>
+    </div>
+
+    <!-- Background Audio Link (Using a clean streamable source for Nothing's New) -->
+    <iframe id="youtube-player" style="display:none;" width="0" height="0" src="https://www.youtube.com/embed/48g4l790qS0?enablejsapi=1" allow="autoplay"></iframe>
+
+    <script>
+        // Star generation script
+        const starField = document.getElementById('star-field');
+        for (let i = 0; i < 30; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = star.style.height = Math.random() * 4 + 2 + 'px';
+            star.style.top = Math.random() * 100 + 'vh';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            starField.appendChild(star);
+        }
+
+        // YouTube Audio Control Hack
+        let playing = false;
+        const playerFrame = document.getElementById('youtube-player');
+        
+        function toggleMusic() {
+            const btn = document.getElementById('play-trigger');
+            if (!playing) {
+                // Tells the hidden YouTube video to start playing automatically
+                playerFrame.src += "&autoplay=1";
+                btn.innerHTML = "⏸️ Pause Music";
+                playing = true;
+            } else {
+                // Resets the player to pause it
+                playerFrame.src = "https://www.youtube.com/embed/48g4l790qS0?enablejsapi=1";
+                btn.innerHTML = "🎵 Play \"Nothing's New\"";
+                playing = false;
+            }
+        }
+    </script>
+</body>
+</html>
